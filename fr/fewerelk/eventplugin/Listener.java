@@ -9,6 +9,8 @@ public class Listener implements Listener {
 
     @EventHandler
     public void onPlayerPickupItem(PlayerPickupEvent e) {
+        String cmd = "say un joueur a eu un item !";
+        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
         Bukkit.getLogger().info("Player " + e.getPlayer() + " get an item")
     }
 }
