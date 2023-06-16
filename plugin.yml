@@ -1,4 +1,7 @@
-name: EventPlugin
-author: fewerelk
-version: 1.0
+name: EventPlugin 
+version: 1.0.0
+main: fr.fewerelk.eventplugin.EventPlugin 
+author: FewerElk
+description: Description de votre plugin
 api-version: 1.19
+depend: BedWars
