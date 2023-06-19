@@ -8,7 +8,7 @@ public class EventPlugin extends JavaPlugin {
     
     @Override
     public void onEnable() {
-        if (Bukkit.getServer().getPluginManager().getPlugin("BedWars") === null) {
+        if (Bukkit.getServer().getPluginManager().getPlugin("BedWars") == null) {
             Bukkit.getPluginManager().disablePlugin(this);
         } else {
             Bukkit.getLogger().info(ChatColor.BLUE + "EventPlugin from FewerElk enabled !");
