@@ -22,6 +22,10 @@ public class EventListener implements Listener {
         Bukkit.getLogger().info("Player " + e.getPlayer() + " get an item");
     }
     public string getCommand() {
-        
+        private String path = "plugins/EventPlugin/"
+        File file = new File(path + "cmd.txt");
+        if (file.exists()) {
+            
+        }
     }
 }
