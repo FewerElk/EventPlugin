@@ -19,11 +19,8 @@ public class EventListener implements Listener {
 
     @EventHandler
     public void onBuyItem(BedwarsItemBoughtEvent e) {
-        Player player = (Player) e.getWhoClicked();	// for a placeholder %player% TODO
-        if (e.getAction() == InventoryAction.PICKUP_ALL) {
-        	String cmd = getCommand();
-        	Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
-        }
+        String cmd = getCommand();
+        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
     }
     public String getCommand() {
         String path = "plugins/EventPlugin/";
