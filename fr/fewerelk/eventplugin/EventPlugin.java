@@ -11,6 +11,8 @@ public class EventPlugin extends JavaPlugin {
         if (Bukkit.getServer().getPluginManager().getPlugin("BedWars") == null) {
             Bukkit.getPluginManager().disablePlugin(this);
         } else {
+        	EventListener l = new EventListener();
+        	Bukkit.getServer().getPluginManager().registerEvents(l, this);
             Bukkit.getLogger().info(ChatColor.BLUE + "EventPlugin from FewerElk enabled !");
         }
     }

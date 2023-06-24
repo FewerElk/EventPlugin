@@ -3,9 +3,6 @@ package fr.fewerelk.eventplugin;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
-import fr.fewerelk.eventplugin.PlaceHolderSystem;
 
 import java.util.Scanner;
 import java.io.File;
