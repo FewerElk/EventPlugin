@@ -2,10 +2,10 @@ package fr.fewerelk.eventplugin;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryAction;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
+import fr.fewerelk.eventplugin.PlaceHolderSystem;
 
 import java.util.Scanner;
 import java.io.File;
@@ -20,6 +20,7 @@ public class EventListener implements Listener {
     @EventHandler
     public void onBuyItem(BedwarsItemBoughtEvent e) {
         String cmd = getCommand();
+        cmd = PlaceHolderSystem.format(cmd, e.getCustomer().getDisplayName(), e.getItem(), e.getPrice());
         Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
     }
     public String getCommand() {
