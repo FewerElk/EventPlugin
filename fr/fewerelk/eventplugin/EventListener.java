@@ -1,14 +1,14 @@
 package fr.fewerelk.eventplugin;
 
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import org.bukkit.event.*;
-import org.bukkit.event.entity.*;
-import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.Bukkit;
-
 import java.util.Scanner;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -16,16 +16,34 @@ import java.io.PrintStream;
 public class EventListener implements Listener {
 
     @EventHandler
-    public void onPlayerPickupItem(@SuppressWarnings("deprecation") PlayerPickupItemEvent e) {
-        String cmd = "say un joueur a eu un item !";
-        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
-        Bukkit.getLogger().info("Player " + e.getPlayer() + " get an item");
-    }
-    public string getCommand() {
-        private String path = "plugins/EventPlugin/"
-        File file = new File(path + "cmd.txt");
-        if (file.exists()) {
-            
+    public void onBuyItem(InventoryClickEvent e) {
+        Player player = (Player) e.getWhoClicked();	// for a placeholder %player% TODO
+        if (e.getAction() == InventoryAction.PICKUP_ALL) {
+        	String cmd = getCommand();
+        	Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
         }
+    }
+    public String getCommand() {
+        String path = "plugins/EventPlugin/";
+        File file = new File(path + "cmd.txt");
+        try {
+			Scanner scan = new Scanner(file);
+			String cmd = scan.nextLine();
+			scan.close();
+			return cmd;
+		} catch (FileNotFoundException e) {
+			try {
+				file.createNewFile();
+				PrintStream out = new PrintStream(file);
+				String cmd = "tellraw @a \"A player bought an item !\"";
+				out.println(cmd);
+				out.close();
+				return cmd;
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				return "";
+			}
+		}
     }
 }
