@@ -13,10 +13,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import org.screamingsandals.bedwars.api.events.BedwarsItemBoughtEvent;
+
 public class EventListener implements Listener {
 
     @EventHandler
-    public void onBuyItem(InventoryClickEvent e) {
+    public void onBuyItem(BedwarsItemBoughtEvent e) {
         Player player = (Player) e.getWhoClicked();	// for a placeholder %player% TODO
         if (e.getAction() == InventoryAction.PICKUP_ALL) {
         	String cmd = getCommand();
