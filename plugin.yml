@@ -3,6 +3,7 @@ description: A Spigot 1.19 plugin extension for the plugin ScreamingBedwars
 version: 1.0.0
 main: fr.fewerelk.eventplugin.EventPlugin 
 author: FewerElk
+website: github.com/FewerElk/EventPlugin
 api-version: 1.19
 load: POSTWORLD
 depend: [BedWars]
