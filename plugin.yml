@@ -6,8 +6,8 @@ author: FewerElk
 website: github.com/FewerElk/EventPlugin
 api-version: 1.19
 load: POSTWORLD
-depend: [BedWars]
-loadbefore: [BedWars]
+depend: [BedWars, Vault]
+loadbefore: [BedWars, Vault]
 commands:
   buycommand:
     description: Buy a command for bedwars games
