@@ -15,7 +15,7 @@ public class EventPlugin extends JavaPlugin {
         } else {
         	EventListener l = new EventListener();
         	Bukkit.getServer().getPluginManager().registerEvents(l, this);
-        	getCommand("maCommande").setExecutor(new BuyCmd());
+        	getCommand("buycmd").setExecutor(new BuyCmd());
             Bukkit.getLogger().info(ChatColor.BLUE + "EventPlugin from FewerElk enabled !");
         }
     }
