@@ -16,9 +16,9 @@ commands:
     - bcmd
     usage: /<command> <article>
   modifycmd:
-    description: Modify a command to buy
+    description: Modify the command to buy
     permission: betheconsole
     aliases: 
     - mcmd
     permission-message: YOu have to be in the console to perform this command ! Contact the admin !
-    usage: /<command> [add|delete|modify] <article> (price) (command)
+    usage: /<command> [setcmd|setprice|setenabled] <value>
