@@ -5,7 +5,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import fr.fewerelk.eventplugin.commands.*;
@@ -15,7 +14,7 @@ public class EventPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
     	if (!setupEconomy()) {
-            getLogger().severe("Plugin d'économie non pris en charge.");
+            getLogger().severe("Economy plugin not supported.");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }

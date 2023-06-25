@@ -32,7 +32,7 @@ public class EventListener implements Listener {
 			try {
 				file.createNewFile();
 				PrintStream out = new PrintStream(file);
-				String cmd = "tellraw @a \"A player bought an item !\"";
+				String cmd = "tellraw @a \"%player% bought the item %item% !\"\n10";
 				out.println(cmd);
 				out.close();
 				return cmd;
