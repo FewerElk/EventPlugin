@@ -4,12 +4,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
+import net.milkbowl.vault.economy.Economy;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.RegisteredServiceProvider;
+
 import fr.fewerelk.eventplugin.commands.*;
 
 public class EventPlugin extends JavaPlugin {
     
     @Override
     public void onEnable() {
+    	if (!setupEconomy()) {
+            getLogger().severe("Plugin d'économie non pris en charge.");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
         if (Bukkit.getServer().getPluginManager().getPlugin("BedWars") == null) {
             Bukkit.getPluginManager().disablePlugin(this);
         } else {
@@ -17,6 +26,17 @@ public class EventPlugin extends JavaPlugin {
         	Bukkit.getServer().getPluginManager().registerEvents(l, this);
         	getCommand("buycommand").setExecutor(new BuyCmd());
             Bukkit.getLogger().info(ChatColor.BLUE + "EventPlugin from FewerElk enabled !");
+        }
+    }
+    
+    private boolean setupEconomy() {
+        RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(Economy.class);
+        if (economyProvider != null) {
+            Economy economy = economyProvider.getProvider();
+            return (economy != null);
+        } else {
+            Economy economy = null;
+            return (economy != null);
         }
     }
 
