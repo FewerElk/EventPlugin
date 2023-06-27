@@ -13,6 +13,10 @@ public class EventPlugin extends JavaPlugin {
     
     @Override
     public void onEnable() {
+        Bukkit.getLogger().warning("---------- !!! READ ME !!! ----------");
+        Bukkit.getLogger().warning("It is forbidden to earn money with");
+        Bukkit.getLogger().warning("Minecraft. If this plugin is used");
+        Bukkit.getLogger().warning("for this goal, it will not be updated.");
     	if (!setupEconomy()) {
             getLogger().severe("Economy plugin not supported.");
             getServer().getPluginManager().disablePlugin(this);
